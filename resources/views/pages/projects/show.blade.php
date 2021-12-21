@@ -12,6 +12,7 @@
             </div>
             <div class="col-md-6 col-12">
                 <a type="button" href="{{ route('project.edit', $project->id ) }}" class="btn btn-primary mr-1 waves-effect waves-float waves-light" style="float: right">Project Edit</a>
+                <a type="button" href="{{ route('customers.list', $project->id) }}" class="btn btn-primary mr-1 waves-effect waves-float waves-light" style="float: right">Customers List</a>
                 <a type="button" href="{{ route('project.create_customer', $project->id) }}" class="btn btn-primary mr-1 waves-effect waves-float waves-light" style="float: right">Add Customer</a>
             </div>
         </div>
@@ -25,7 +26,7 @@
                         <div class="meetup-header d-flex align-items-center">
                             <div class="my-auto">
                                 <h4 class="card-title mb-25">{{ $project->name_of_project }}</h4>
-                                <p class="card-text mb-0">Meet world popular developers</p>
+                                <p class="card-text mb-0">File No : {{ $project->project_file_no }}</p>
                             </div>
                         </div>
                         <div class="row">
@@ -151,20 +152,16 @@
                                 </div>
                             </div>
                         </div>
-                        <h3>Curtis Stone</h3>
+                        <h3>{{ $project->name_of_project }}</h3>
                         <hr class="mb-2">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h6 class="text-muted fw-bolder">Project No</h6>
-                                <h3 class="mb-0">{{ $project->id }}</h3>
+                                <h6 class="text-muted fw-bolder">File No</h6>
+                                <h3 class="mb-0">{{ $project->project_file_no }}</h3>
                             </div>
                             <div>
                                 <h6 class="text-muted fw-bolder">Customers</h6>
                                 <h3 class="mb-0">156</h3>
-                            </div>
-                            <div>
-                                <h6 class="text-muted fw-bolder">Rank</h6>
-                                <h3 class="mb-0">23</h3>
                             </div>
                         </div>
                     </div>

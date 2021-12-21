@@ -1,18 +1,14 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="card">
-    <div class="card-header" style="background-color:rgb(46 46 46 / 18%)">
-        <div class="col-md-6 col-12">
-            <h4 class="card-title">Customer Allotment Form</h4>
-        </div>
-        <div class="col-md-6 col-12">
-            <a type="button" href="{{ route('project.show', $project->id) }}" class="btn btn-primary mr-1 waves-effect waves-float waves-light" style="float: right">Back</a>
-        </div>
-    </div>
-
 
     <div class="card">
+        
+        <div class="card-header border-bottom">
+            <h4 class="card-title">Customer Allotment Form</h4>
+            <a type="button" href="{{ route('project.show', $project->id) }}" class="btn btn-primary waves-effect waves-float waves-light" style="float: right">Back</a>
+        </div>
+
         <form class="form" action="{{ route('customer.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
@@ -349,13 +345,13 @@
                     <div class="col-md-6 col-12">
                         <div class="form-group">
                             <label for="">Amount In Word</label>
-                            <input type="text" class="form-control" placeholder="In Word" name="uniity_charge_in_word">
+                            <input type="text" class="form-control" placeholder="In Word" name="utility_charge_in_word">
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
                         <div class="form-group">
                             <label for="">Utility Charge</label>
-                            <input type="number" class="form-control" placeholder="Unity Charge" value="{{ old('utility_charge') }}" name="uniity_charge">
+                            <input type="number" class="form-control" placeholder="Unity Charge" value="{{ old('utility_charge') }}" name="utility_charge">
                             @error('utility_charge')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -567,7 +563,6 @@
             </div>
         </form>
     </div>
-</div>
 
 @endsection
 

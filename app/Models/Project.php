@@ -9,7 +9,8 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
+    protected $fillable = [ 
+        'project_file_no',
         'name_of_project',
         'project_location',
         'floor',
@@ -17,6 +18,17 @@ class Project extends Model
         'area',
         'price',
         'booked_flat',
-        'project_image'
+        'project_image',
+       
     ];
+
+
+    public function customers()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+    // public function projects()
+    // {
+    //     return $this->hasMany(Project::class);
+    // }
 }

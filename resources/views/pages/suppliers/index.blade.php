@@ -36,7 +36,7 @@
                                         <tr>
                                             <td>{{ $sn++ }}</td>
                                             <td>
-                                                <img class="rounded-circle cursor-pointer" src="{{ asset('upload/contractor_images/'.$info->image)}}" alt="avatar" height="30" width="30">
+                                                <img class="rounded-circle cursor-pointer" src="{{ asset('upload/supllier_images/'.$info->image)}}" alt="avatar" height="30" width="30">
                                             </td>
                                             <td>{{ $info->name_of_supplier }}</td>
                                             <td>{{ $info->email }}</td>

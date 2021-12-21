@@ -1,14 +1,18 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class="card-header">
-        <h3 class="card-title text-center" style="margin-bottom: 0px">Project Form</h3>
-    </div>
-
     <div class="card">
+        <div class="card-header border-bottom">
+            <h4 class="card-title">Project Form</h4>
+            <a type="button" href="{{ route('home') }}" class="btn btn-primary waves-effect waves-float waves-light" style="float: right">Back</a>
+        </div>
+
         <form class="form" action="{{ route('project.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
+                
+               @include('pages.errors.message')
+                
                 <div class="row">
                     <div class="col-md-12 col-12">
                         <div class="form-group">
@@ -64,7 +68,7 @@
                         <!-- Select2 Start  -->
                         <div class="col-md-6 col-12">
                             <label>Booked Flat</label>
-                            <select class="select2 form-control form-control-lg booked_flat" id="select2-basic" name="booked_flat[]" multiple>
+                            <select class="select2 form-control form-control-lg booked_flat"  id="select2-basic" name="booked_flat[]" readonly="" multiple>
                                 
                             </select>
                         </div>

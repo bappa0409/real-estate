@@ -63,9 +63,15 @@
                     <div class="row">
                         <!-- Select2 Start  -->
                         <div class="col-md-6 col-12">
+                            @php
+                               $value = explode(',', $project->booked_flat)
+                            @endphp
                             <label>Booked Flat</label>
-                            <select class="select2 form-control form-control-lg booked_flat" id="select2-basic" name="booked_flat[]" value="{{ $project->booked_flat }}" selected multiple>
-                                
+                            <select class="select2 form-control form-control-lg booked_flat" id="select2-basic" name="booked_flat[]" value="" selected multiple>
+                                @foreach ( $value as   $values)
+                                     <option value="{{ $values }}" selected>{{  $values}}</option> 
+                                @endforeach
+                               
                             </select>
                         </div>
                         <!-- Select2 End -->
@@ -116,43 +122,60 @@
                     @error('project_image')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
-                    {{-- <div class="card">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <div class="card-body bg-dark">
-                                    <h4 class="card-title text-center text-light mb-0">Project Image</h4>
-                                </div>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="project_image">
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                    </div>
-                                </div>
-                                
-                                @error('customer_signature')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="col-md-3">
-                                <img src="{{ asset('admin_assets/app-assets/images/signature.jpg') }}" alt="" style="height: 100px; width:100%" class="card-img-top">
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
-
-            {{-- <div class="card-body pt-0">
-                <div class="form-group row">
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary mr-1 waves-effect waves-float waves-light">Submit</button>
-                        <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
-                    </div>
-                </div>
-            </div> --}}
         </form>
     </div>
+
+@endsection
+
+@section('scripts')
+
+ <!-- Booked flat JS Start-->
+ <script>
+    $( document ).ready(function() {
+
+        var floor_num = 0,
+            floor_unit = 0,
+            total_val = 0;
+        $('.floor_num').on('change', function(){
+            floor_num = $(this).val();
+        });
+
+        $('.floor_unit').on('change', function(){
+            floor_unit = $(this).val();
+            total_val = floor_unit * floor_num;
+
+            console.log(total_val);
+            for (let flat_loop = 1; flat_loop <= floor_num; flat_loop++) {
+
+                for (let flat_unit_count = 1; flat_unit_count <= floor_unit; flat_unit_count++) {
+                    if (flat_unit_count == 1) {
+                        $('.booked_flat').append('<option>'+ flat_loop+'A</option>');
+                    } else if (flat_unit_count == 2) {
+                        $('.booked_flat').append('<option>'+ flat_loop+'B</option>');
+                    } else if (flat_unit_count == 3) {
+                        $('.booked_flat').append('<option>'+ flat_loop+'C</option>');
+                    } else if (flat_unit_count == 4) {
+                        $('.booked_flat').append('<option>'+ flat_loop+'D</option>');
+                    } else if (flat_unit_count == 5) {
+                        $('.booked_flat').append('<option>'+ flat_loop+'E</option>');
+                    } else if (flat_unit_count == 6) {
+                        $('.booked_flat').append('<option>'+ flat_loop+'F</option>');
+                    }
+                }
+            }
+            
+        });
+
+        $('.booked_flat').on('change', function(){
+            var booked_flat_item = $( ".booked_flat option:selected" ).text();
+            console.log(booked_flat_item);
+        });
+
+        
+    });
+
+</script>
 
 @endsection

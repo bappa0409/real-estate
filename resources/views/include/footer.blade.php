@@ -76,7 +76,7 @@
 <!-- END: Page JS-->
 
 <!-- SweetAlert2 JS Start-->
-<script>
+{{-- <script>
     $(function(){
     
         @if(Session::has('success'))
@@ -87,7 +87,7 @@
         })
         @endif
     });
-</script>
+</script> --}}
 <!-- SweetAlert2 JS End-->
 
 <script>

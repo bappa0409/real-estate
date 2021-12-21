@@ -38,7 +38,7 @@
                 <a class="d-flex align-items-center {{ Route::is('home')  ? 'active' : '' }}" href="{{ route('home') }}"><i data-feather="home"></i><span class="menu-title text-truncate" data-i18n="Dashboards">Dashboards</span>
                 </a>
             </li>
-            {{-- <li class="nav-item {{ Route::is('project.index') || Route::is('project.create')  ? 'has-sub open' : '' }}"><a class="d-flex align-items-center" href="#"><i data-feather="shopping-bag"></i><span class="menu-title text-truncate" data-i18n="Invoice">Projects</span></a>
+            <li class="nav-item {{ Route::is('project.index') || Route::is('project.create')  ? 'has-sub open' : '' }}"><a class="d-flex align-items-center" href="#"><i data-feather="shopping-bag"></i><span class="menu-title text-truncate" data-i18n="Invoice">Projects</span></a>
                 <ul class="menu-content">
                     <li>
                         <a class="d-flex align-items-center {{ Route::is('project.create')  ? 'active' : '' }}" href="{{ route('project.create') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Project Add</span>
@@ -49,7 +49,7 @@
                         </a>
                     </li>
                 </ul>
-            </li> --}}
+            </li>
             <li class="nav-item {{ Route::is('customers.list') || Route::is('customer.create')  ? 'has-sub open' : '' }}"><a class="d-flex align-items-center" href="#"><i data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Invoice">Customers</span></a>
                 <ul class="menu-content">
                     <li>

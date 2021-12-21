@@ -16,6 +16,8 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index($id = null)
     {
         try{
@@ -32,11 +34,15 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id = null)
     {
-        // $project = Project::find($id);
-        // dd($project);
-        return view('pages.customers.create');
+        try{
+            $project = Project::findOrFail($id);
+            return view('pages.customers.create', compact('project'));
+        }catch(ModelNotFoundException $e){
+            // catch(Exception $e) catch any exception
+            return view('pages.errors.project_file');
+        }
     }
 
     /**

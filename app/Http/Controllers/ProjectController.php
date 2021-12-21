@@ -55,8 +55,10 @@ class ProjectController extends Controller
             $path = $filename;
         }
         //Project Image End
+        $file_no = 'THL'.time();
 
         $project = new Project();
+        $project->project_file_no = $file_no;
         $project->name_of_project = $request->name_of_project;
         $project->project_area = $request->project_area;
         $project->project_zila = $request->project_zila;

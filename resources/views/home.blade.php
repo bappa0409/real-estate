@@ -1,28 +1,27 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="content-wrapper container-xxl p-0">
+<div class="content-wrapper p-0">
     <div class="content-header row">
     </div>
     <div class="content-body">
         <!-- Dashboard Starts -->
         <section id="dashboard-ecommerce">
+            @include('pages.errors.message')
             <div class="row match-height">
 
                 <!-- Medal Card -->
-                <div class="col-lg-4 col-md-6 col-12">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-12">
                     <div class="card card-developer-meetup">
                         <div class="card-body py-2">
-                            
-                                <div style="position: relative;height: 130px;">
-                                    <a href="{{ route('project.create') }}">
-                                        <div class="d-flex" style=" margin: 0; position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
-                                            <i class="far fa-plus-square" style="font-size: 20px;"></i>
-                                            <h3 class="pl-1">Add Project</h3>
-                                        </div>
-                                    </a>
-                                </div>
-                            
+                            <div style="position: relative;height: 130px;">
+                                <a href="{{ route('project.create') }}">
+                                    <div class="d-flex" style=" margin: 0; position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+                                        <i class="far fa-plus-square" style="font-size: 20px;"></i>
+                                        <h3 class="pl-1">Add Project</h3>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -30,7 +29,7 @@
 
                 <!-- Medal Card -->
                 @foreach ($projects as $project)
-                    <div class="col-lg-4 col-md-6 col-12">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-12">
                         <div class="card card-developer-meetup">
                             <a href="{{ route('project.show', $project->id) }}">
                             {{-- <a href="{{ route('project.edit', $project->id) }}"> --}}

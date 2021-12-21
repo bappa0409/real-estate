@@ -6,6 +6,9 @@
     </div>
 
     <div class="card">
+
+        
+
         <form class="form" action="{{  route('contractor.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 

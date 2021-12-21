@@ -63,11 +63,11 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group d-flex" style="margin-top:8px">
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" id="active" name="status" class="custom-control-input" value="1">
+                                    <input type="radio" id="active" name="status" class="custom-control-input" value="1" {{ ($designer->status =="1")? "checked" : "" }} >
                                     <label class="custom-control-label" for="active">Active</label>
                                 </div>
                                 <div class="custom-control custom-radio ml-2">
-                                    <input type="radio" id="deactive" name="status" class="custom-control-input" value="0">
+                                    <input type="radio" id="deactive" name="status" class="custom-control-input" value="0" {{ ($designer->status =="0")? "checked" : "" }}>
                                     <label class="custom-control-label" for="deactive">Deactive</label>
                                 </div>
                             </div>
@@ -80,18 +80,18 @@
                     <div class="form-group row mt-2">
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary mr-1 waves-effect waves-float waves-light">Submit</button>
-                            <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
+                            <a href="{{ route('designer.list') }}" class="btn btn-outline-secondary waves-effect" type="button">Back</a>
                         </div>
                     </div>
                 </div>
-                <img class="rounded-circle cursor-pointer" src="{{ asset('upload/supplier_images/'.$designer->image)}}" alt="avatar" height="30" width="30">
+                <img class="rounded-circle cursor-pointer" src="{{ asset('upload/designer_images/'.$designer->image)}}" alt="avatar" height="30" width="30">
                 <div class="col-md-3">
                     <div class="imgUp mt-2">
                         <div class="imagePreview">
                             
                         </div>
                         <label class="btn btn-primary imgBtn" style="width: 100%">
-                        Upload Contractor Image
+                        Update Designer Image
                             <input type="file" class="uploadFile img mt-1" name="image" value="Upload Photo" style="width:100%; height: 100%;overflow: hidden;">
                         </label>
                     </div>

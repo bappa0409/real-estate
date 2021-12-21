@@ -63,11 +63,11 @@
                         <div class="col-md-6 col-12">
                             <div class="form-group d-flex" style="margin-top:8px">
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" id="active" name="status" class="custom-control-input" value="1">
+                                    <input type="radio" id="active" name="status" class="custom-control-input" value="1" {{ ($contractor->status =="1")? "checked" : "" }}>
                                     <label class="custom-control-label" for="active">Active</label>
                                 </div>
                                 <div class="custom-control custom-radio ml-2">
-                                    <input type="radio" id="deactive" name="status" class="custom-control-input" value="0">
+                                    <input type="radio" id="deactive" name="status" class="custom-control-input" value="0" {{ ($contractor->status =="0")? "checked" : "" }}>
                                     <label class="custom-control-label" for="deactive">Deactive</label>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                     <div class="form-group row mt-2">
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary mr-1 waves-effect waves-float waves-light">Submit</button>
-                            <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
+                            <a href="{{ route('contractor.list') }}" class="btn btn-outline-secondary waves-effect" type="button">Back</a>
                         </div>
                     </div>
                 </div>

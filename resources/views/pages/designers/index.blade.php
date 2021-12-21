@@ -11,7 +11,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header border-bottom">
-                                <h4 class="card-title">List Of All Designers</h4>
+                                <h4 class="card-title">List of All Designers</h4>
                                 <a type="button" href="{{ route('designer.create') }}" class="btn btn-primary waves-effect waves-float waves-light" style="float: right">Add Designer</a>
                             </div>
                             <div class="card-datatable">
@@ -36,7 +36,7 @@
                                         <tr>
                                             <td>{{ $sn++ }}</td>
                                             <td>
-                                                <img class="rounded-circle cursor-pointer" src="{{ asset('upload/contractor_images/'.$info->image)}}" alt="avatar" height="30" width="30">
+                                                <img class="rounded-circle cursor-pointer" src="{{ asset('upload/designer_images/'.$info->image)}}" alt="avatar" height="30" width="30">
                                             </td>
                                             <td>{{ $info->name_of_designer }}</td>
                                             <td>{{ $info->email }}</td>

@@ -14,6 +14,7 @@ class CreateDesignersTable extends Migration
     public function up()
     {
         Schema::create('designers', function (Blueprint $table) {
+            $table->id();
             $table->string('name_of_designer');
             $table->string('email');
             $table->string('contact_number');

@@ -10,7 +10,7 @@ use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SuppliersController;
 use App\Http\Controllers\DesignersController;
-
+use App\Http\Controllers\FileSearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +41,8 @@ Route::middleware(['auth:web'])->group(function () {
         Route::get('/create/customer/{id?}', [ProjectController::class, 'create_customer'])->name('project.create_customer');
     });
      //End Customer Route
+
+    Route::post('/file/search', [FileSearchController::class, 'file_search'])->name('file.search');
 
     //Customer Route
     Route::prefix('customer')->group(function () {
