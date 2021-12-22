@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') Customer's List @endsection
 @section('content')
 
 <div class="row" id="basic-table">

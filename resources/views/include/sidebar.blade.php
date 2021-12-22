@@ -41,7 +41,7 @@
             <li class="nav-item {{ Route::is('project.index') || Route::is('project.create')  ? 'has-sub open' : '' }}"><a class="d-flex align-items-center" href="#"><i data-feather="shopping-bag"></i><span class="menu-title text-truncate" data-i18n="Invoice">Projects</span></a>
                 <ul class="menu-content">
                     <li>
-                        <a class="d-flex align-items-center {{ Route::is('project.create')  ? 'active' : '' }}" href="{{ route('project.create') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Project Add</span>
+                        <a class="d-flex align-items-center {{ Route::is('project.create')  ? 'active' : '' }}" href="{{ route('project.create') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Add Project </span>
                         </a>
                     </li>
                     <li>
@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="d-flex align-items-center {{ Route::is('customer.create')  ? 'active' : '' }}" href="{{ route('customer.create') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">Customer Add</span>
+                        <a class="d-flex align-items-center {{ Route::is('customer.create')  ? 'active' : '' }}" href="{{ route('customer.create') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">Add Customer</span>
                         </a>
                     </li>
                 </ul>
@@ -104,6 +104,21 @@
                         <a class="d-flex align-items-center {{ Route::is('designer.list')  ? 'active' : '' }}" href="{{ route('designer.list') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List Designers</span>
                         </a>
                     </li>
+                </ul>
+            </li>
+
+            <li class=" nav-item {{ Route::is('billing.list') || Route::is('billing.select')  ? 'has-sub open' : '' }}">
+                <a class="d-flex align-items-center" href="#"><i data-feather="save"></i><span class="menu-title text-truncate" data-i18n="Invoice">Billing</span>
+                </a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="d-flex align-items-center {{ Route::is('billing.select')  ? 'active' : '' }}" href="{{ route('billing.select') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Preview">Add Billing</span>
+                        </a>
+                    </li>
+                    {{-- <li>
+                        <a class="d-flex align-items-center {{ Route::is('billing.list')  ? 'active' : '' }}" href="{{ route('billing.list') }}"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">Billing List</span>
+                        </a>
+                    </li> --}}
                 </ul>
             </li>
 

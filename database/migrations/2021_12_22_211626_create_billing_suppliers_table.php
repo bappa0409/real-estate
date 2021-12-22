@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBillingsTable extends Migration
+class CreateBillingSuppliersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,20 @@ class CreateBillingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('billings', function (Blueprint $table) {
+        Schema::create('billing_suppliers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('project_id');
-            $table->unsignedBigInteger('contractor_id');
+            $table->unsignedBigInteger('supplier_id');
+            $table->string('supplier_contact_number');
+            $table->double('bill_amount')->nullable();
+            $table->double('fixed_bill_amount')->nullable();
             $table->date('bill_date');
             $table->date('file_opening_date');
+            $table->string('supplier_address');
+            $table->date('payment_receiving_date');
             $table->string('challan_no');
-            $table->decimal('billing_amount');
-            $table->decimal('balance_amount');
-            $table->date('payment_date');
-            $table->longText('remarks')->nullable();
+            $table->double('payment_receiving_amount');
+            $table->double('balance_amount');
             $table->timestamps();
         });
     }
@@ -35,6 +38,6 @@ class CreateBillingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('billings');
+        Schema::dropIfExists('billing_suppliers');
     }
 }

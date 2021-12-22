@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') Project Details @endsection
 @section('content')
 
     {{-- <div class="card-header">
@@ -7,12 +8,13 @@
     
     <div class="card">
         <div class="card-header" style="background-color:rgb(46 46 46 / 18%)">
-            <div class="col-md-6 col-12">
+            <div class="col-md-3 col-12">
                 <h4 class="card-title">Project Informations</h4>
             </div>
-            <div class="col-md-6 col-12">
-                <a type="button" href="{{ route('project.edit', $project->id ) }}" class="btn btn-primary mr-1 waves-effect waves-float waves-light" style="float: right">Project Edit</a>
+            <div class="col-md-9 col-12">
+                <a type="button" href="{{ route('project.edit', $project->id ) }}" class="btn btn-primary mr-1 waves-effect waves-float waves-light" style="float: right">Edit Project</a>
                 <a type="button" href="{{ route('customers.list', $project->id) }}" class="btn btn-primary mr-1 waves-effect waves-float waves-light" style="float: right">Customers List</a>
+                <a type="button" href="{{ route('billing.select', $project->id) }}" class="btn btn-primary mr-1 waves-effect waves-float waves-light" style="float: right">Add Billing</a>
                 <a type="button" href="{{ route('project.create_customer', $project->id) }}" class="btn btn-primary mr-1 waves-effect waves-float waves-light" style="float: right">Add Customer</a>
             </div>
         </div>

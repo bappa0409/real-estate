@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') Voucher's @endsection
 @section('content')
 
 <!-- Responsive Datatable -->

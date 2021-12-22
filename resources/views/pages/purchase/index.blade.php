@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') Purchase List @endsection
 @section('content')
 
 <!-- Responsive Datatable -->

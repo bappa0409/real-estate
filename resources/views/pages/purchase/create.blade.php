@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') Create Purchase @endsection
 @section('content')
 
     <div class="card-header">

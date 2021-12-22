@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') Installment @endsection
 @section('content')
 
 <!-- Responsive Datatable -->

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') Project's List @endsection
 @section('content')
 
 <div class="content-wrapper container-xxl p-0">

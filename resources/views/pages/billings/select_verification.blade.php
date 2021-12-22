@@ -13,17 +13,21 @@
                         </div>
                     </div>
                 </div>
-                <h5>Sorry Sir..!!</h5>
-                <h4>Please Select Your File No.</h4>
+                <h4>Please Select Your Seller</h4>
                 <hr class="mb-2">
 
                 <div class="col-12">
                     @include('pages.errors.message')
-                    <form action="{{ route('file.search') }}" method="POST">
+                    <form action="{{ route('select.seller', $project->id) }}" method="POST">
                         @csrf
+                        {{-- <input type="text" name="project_id" value="{{ $project->id }}"> --}}
                         <div class="form-group mb-2">
-                            <input type="text" id="payment-input-name" name="project_file_no" class="form-control" placeholder="Project No.">
-                            
+                            <select class="select2 form-control form-control-lg" name="seller">
+                                <option selected disabled>Select One</option>
+                                <option value="contractor">Contractor</option>
+                                <option value="supplier">Supplier</option>
+                                <option value="designer">Designer</option>
+                            </select>
                             @error('project_file_no')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror

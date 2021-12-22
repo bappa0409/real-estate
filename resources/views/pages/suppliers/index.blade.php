@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') Supplier's List @endsection
 @section('content')
 
 <div class="row" id="basic-table">
@@ -36,7 +37,7 @@
                                         <tr>
                                             <td>{{ $sn++ }}</td>
                                             <td>
-                                                <img class="rounded-circle cursor-pointer" src="{{ asset('upload/supllier_images/'.$info->image)}}" alt="avatar" height="30" width="30">
+                                                <img class="rounded-circle cursor-pointer" src="{{ asset('upload/supplier_images/'.$info->image)}}" alt="avatar" height="30" width="30">
                                             </td>
                                             <td>{{ $info->name_of_supplier }}</td>
                                             <td>{{ $info->email }}</td>

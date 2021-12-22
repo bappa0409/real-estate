@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title') Contractor's List @endsection
 @section('content')
 
 <div class="row" id="basic-table">

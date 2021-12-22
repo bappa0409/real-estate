@@ -74,7 +74,7 @@
 <!-- BEGIN: Page JS-->
 <script src="{{ asset('admin_assets/app-assets/js/scripts/forms/form-file-uploader.js')}}"></script>
 <!-- END: Page JS-->
-
+<script src="{{ asset('admin_assets/app-assets/js/scripts/ui/ui-feather.js')}}"></script>
 <!-- SweetAlert2 JS Start-->
 {{-- <script>
     $(function(){

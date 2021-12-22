@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title')Update Designer @endsection
 @section('content')
 
     <div class="card-header">

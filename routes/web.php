@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BillingController;
 use App\Http\Controllers\ContractorsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -76,14 +77,31 @@ Route::middleware(['auth:web'])->group(function () {
 
     //Designer Route
     Route::prefix('designer')->group(function () {
-    Route::get('/create', [DesignersController::class, 'create'])->name('designer.create');
-    Route::post('/store', [DesignersController::class, 'store'])->name('designer.store');
-    Route::get('/list', [DesignersController::class, 'index'])->name('designer.list'); 
-    Route::get('/edit/{id}', [DesignersController::class, 'edit'])->name('designer.edit');
-    Route::post('/update/{id}', [DesignersController::class, 'update'])->name('designer.update');
-    Route::get('/delete/{id}', [DesignersController::class, 'destroy'])->name('designer.delete');
+        Route::get('/create', [DesignersController::class, 'create'])->name('designer.create');
+        Route::post('/store', [DesignersController::class, 'store'])->name('designer.store');
+        Route::get('/list', [DesignersController::class, 'index'])->name('designer.list'); 
+        Route::get('/edit/{id}', [DesignersController::class, 'edit'])->name('designer.edit');
+        Route::post('/update/{id}', [DesignersController::class, 'update'])->name('designer.update');
+        Route::get('/delete/{id}', [DesignersController::class, 'destroy'])->name('designer.delete');
     });
     //End Designer Route
+
+    //Billing Route
+    Route::prefix('billing')->group(function () {
+        Route::get('/select/{id?}', [BillingController::class, 'select'])->name('billing.select');
+        Route::get('/add/billing/contractor/{id}', [BillingController::class, 'add_billing_contractor'])->name('add.billing.contractor');
+        Route::post('/store/billing/contractor', [BillingController::class, 'store_billing_contractor'])->name('store.contractor.billing');
+        Route::get('/add/billing/supplier/{id}', [BillingController::class, 'add_billing_supplier'])->name('add.billing.supplier');
+        Route::post('/store/billing/supplier', [BillingController::class, 'store_billing_supplier'])->name('store.billing.supplier');
+        Route::get('/add/billing/designer/{id}', [BillingController::class, 'add_billing_designer'])->name('add.billing.designer');
+        Route::post('/store/billing/designer', [BillingController::class, 'store_billing_designer'])->name('store.billing.designer');
+        Route::post('/select/seller/{id?}', [BillingController::class, 'select_seller'])->name('select.seller');
+        // Route::get('/list', [BillingController::class, 'index'])->name('billing.list'); 
+        // Route::get('/edit/{id}', [BillingController::class, 'edit'])->name('billing.edit');
+        // Route::post('/update/{id}', [BillingController::class, 'update'])->name('billing.update');
+        // Route::get('/delete/{id}', [BillingController::class, 'destroy'])->name('billing.delete');
+    });
+    //End Billing Route
 
     //Purchase Route
     Route::prefix('purchase')->group(function () {
