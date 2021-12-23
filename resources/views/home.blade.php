@@ -12,7 +12,7 @@
             <div class="row match-height">
 
                 <!-- Medal Card -->
-                <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
                     <div class="card card-developer-meetup">
                         <div class="card-body py-2">
                             <div style="position: relative;height: 130px;">
@@ -30,7 +30,7 @@
 
                 <!-- Medal Card -->
                 @foreach ($projects as $project)
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
                         <div class="card card-developer-meetup">
                             <a href="{{ route('project.show', $project->id) }}">
                             {{-- <a href="{{ route('project.edit', $project->id) }}"> --}}
