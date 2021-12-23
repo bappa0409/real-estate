@@ -20,13 +20,21 @@ class CustomerController extends Controller
 
     public function index($id = null)
     {
-        try{
+        if ($id) {
             $project = Project::findOrFail($id);
             return view('pages.customers.index', compact('project'));
-        }catch(ModelNotFoundException $e){
-            // catch(Exception $e) catch any exception
+        }else{
             return view('pages.errors.project_file');
         }
+
+
+        // try{
+        //     $project = Project::findOrFail($id);
+        //     return view('pages.customers.index', compact('project'));
+        // }catch(ModelNotFoundException $e){
+        //     // catch(Exception $e) catch any exception
+        //     return view('pages.errors.project_file');
+        // }
     }
 
     /**
