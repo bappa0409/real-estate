@@ -21,6 +21,7 @@ class CreateDesignersTable extends Migration
             $table->longText('address');
             $table->longText('image');
             $table->integer('status')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

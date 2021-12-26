@@ -2,11 +2,11 @@
 @section('title') Update Project @endsection
 @section('content')
 
-    <div class="card-header">
-        <h3 class="card-title text-center" style="margin-bottom: 0px">Project Form Update</h3>
-    </div>
-
     <div class="card">
+        <div class="card-header border-bottom">
+            <h4 class="card-title">Project Form Update</h4>
+            <a type="button" href="{{ route('project.show', $project->id )}}" class="btn btn-primary waves-effect waves-float waves-light" style="float: right">Back</a>
+        </div>
         <form class="form" action="{{ route('project.update', $project->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">

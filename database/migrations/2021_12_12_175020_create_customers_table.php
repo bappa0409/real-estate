@@ -23,19 +23,22 @@ class CreateCustomersTable extends Migration
             $table->string('land_phone_res')->nullable();
             $table->string('office_number')->nullable();
             $table->string('email_address')->unique();
-            $table->string('house_road_no');
-            $table->string('village_area');
+            $table->string('house_no')->nullable();
+            $table->string('road_no')->nullable();
+            $table->string('village_area')->nullable();
             $table->string('post_office');
             $table->string('police_station');
             $table->string('district');
             $table->string('country'); 
-            $table->string('present_house_road_no'); 
-            $table->string('present_village_area'); 
+            $table->string('present_house_no')->nullable(); 
+            $table->string('present_road_no')->nullable(); 
+            $table->string('present_village_area')->nullable(); 
             $table->string('present_post_office'); 
             $table->string('present_police_station'); 
             $table->string('present_district'); 
             $table->string('present_country'); 
             $table->longText('customer_image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

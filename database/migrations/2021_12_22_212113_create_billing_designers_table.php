@@ -27,6 +27,7 @@ class CreateBillingDesignersTable extends Migration
             $table->string('challan_no');
             $table->double('payment_receiving_amount');
             $table->double('balance_amount');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

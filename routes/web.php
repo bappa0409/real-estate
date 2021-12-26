@@ -49,7 +49,11 @@ Route::middleware(['auth:web'])->group(function () {
     Route::prefix('customer')->group(function () {
         Route::get('/create', [CustomerController::class, 'create'])->name('customer.create');
         Route::post('/store', [CustomerController::class, 'store'])->name('customer.store');
+        Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
+        Route::post('/update/{id}', [CustomerController::class, 'update'])->name('customer.update');
         Route::get('/list/{id?}', [CustomerController::class, 'index'])->name('customers.list');
+        Route::get('/view/{id?}', [CustomerController::class, 'show'])->name('customer.view');
+        Route::post('/delete/{id?}', [CustomerController::class, 'destroy'])->name('customer.delete');
     });
     //End Customer Route
 
@@ -103,6 +107,8 @@ Route::middleware(['auth:web'])->group(function () {
     });
     //End Billing Route
 
+    Route::get('/contractor/ajax/{contractor_id}', [BillingController::class, 'getContractor']);
+
     //Purchase Route
     Route::prefix('purchase')->group(function () {
         Route::get('/create', [PurchaseController::class, 'create'])->name('purchase.create');
@@ -119,7 +125,7 @@ Route::middleware(['auth:web'])->group(function () {
 
     //Installment Route
         Route::prefix('installment')->group(function () {
-            Route::get('/all-installment', [InstallmentController::class, 'index'])->name('installment.index');
+            Route::get('/all-installment/{id?}', [InstallmentController::class, 'index'])->name('installment.index');
         });
     //End Installment Route
 });

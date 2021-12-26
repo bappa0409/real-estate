@@ -2,7 +2,7 @@
 @section('title') Project's List @endsection
 @section('content')
 
-<div class="content-wrapper container-xxl p-0">
+<div class="content-wrapper p-0">
     <div class="content-header row">
     </div>
     <div class="content-body">
@@ -17,8 +17,8 @@
                             
                                 <div style="position: relative;height: 130px;">
                                     <a href="{{ route('project.create') }}">
-                                        <div class="d-flex" style=" margin: 0; position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
-                                            <i class="far fa-plus-square" style="font-size: 20px;"></i>
+                                        <div class="d-flex" style=" margin: 0; position: absolute;top: 50%;left: 45%;transform: translate(-50%, -50%);">
+                                            <i class="far fa-plus-square" style="font-size: 20px; margin-top: 4px;"></i>
                                             <h3 class="pl-1">Add Project</h3>
                                         </div>
                                     </a>

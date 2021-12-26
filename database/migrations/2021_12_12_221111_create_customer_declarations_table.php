@@ -35,6 +35,7 @@ class CreateCustomerDeclarationsTable extends Migration
             $table->string('installment_payment_system');
             $table->longText('note')->nullable();
             $table->longText('customer_signature');
+            $table->softDeletes();
 
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->timestamps();

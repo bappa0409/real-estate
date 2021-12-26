@@ -31,4 +31,5 @@ class CustomerDeclaration extends Model
         'note',
         'customer_signature',
     ];
+
 }

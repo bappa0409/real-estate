@@ -62,6 +62,9 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('admin_assets/app-assets/css/pages/dashboard-ecommerce.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('admin_assets/app-assets/css/plugins/charts/chart-apex.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('admin_assets/app-assets/css/plugins/extensions/ext-component-toastr.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin_assets/app-assets/css/pages/app-invoice-list.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin_assets/app-assets/css/pages/app-user.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin_assets/app-assets/css/pages/app-invoice.css')}}">
 <!-- END: Page CSS-->
 
 <!-- BEGIN: Custom CSS-->

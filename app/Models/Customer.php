@@ -30,9 +30,13 @@ class Customer extends Model
         'present_country',
     ];
 
+    public function customers_declaration()
+    {
+        return $this->hasMany(CustomerDeclaration::class);
+    }
 
     public function projects()
     {
-        return $this->hasMany(Project::class);
+        return $this->belongsTo(Project::class, 'project_id', 'id');
     }
 }

@@ -12,13 +12,13 @@
             <div class="row match-height">
 
                 <!-- Medal Card -->
-                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-12">
                     <div class="card card-developer-meetup">
                         <div class="card-body py-2">
                             <div style="position: relative;height: 130px;">
                                 <a href="{{ route('project.create') }}">
-                                    <div class="d-flex" style=" margin: 0; position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
-                                        <i class="far fa-plus-square" style="font-size: 20px;"></i>
+                                    <div class="d-flex" style=" margin: 0; position: absolute;top: 50%;left: 45%;transform: translate(-50%, -50%);">
+                                        <i class="far fa-plus-square" style="font-size: 20px; margin-top: 4px;"></i>
                                         <h3 class="pl-1">Add Project</h3>
                                     </div>
                                 </a>
@@ -30,7 +30,7 @@
 
                 <!-- Medal Card -->
                 @foreach ($projects as $project)
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-12">
                         <div class="card card-developer-meetup">
                             <a href="{{ route('project.show', $project->id) }}">
                             {{-- <a href="{{ route('project.edit', $project->id) }}"> --}}

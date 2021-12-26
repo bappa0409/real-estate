@@ -25,12 +25,12 @@
                             <select class="select2 form-control form-control-lg contractor_name" name="contractor_id" id="selectContractor">
                                 <option selected disabled>Select One</option>
                                
-                                @foreach ($contractors as $info)
-                                    
-                                    <option value="{{ $info->id }}">{{ $info->name_of_contractor }}</option>
-
+                                @foreach ($contractors as $contractor)
+                                
+                                    <option value="{{ $contractor->id }}">{{ $contractor->name_of_contractor }}</option>
                                     
                                 @endforeach
+
                             </select>
                             @error('contractor_id')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -41,12 +41,10 @@
                         <div class="form-group">
                             <label for="">Contact Number</label>
                             <select class="select2 form-control form-control-lg contractor_contact_number" name="contractor_contact_number">
-                                @foreach ($contractors as $info)
+                               
                                     
-                                <option value="{{ $info->id }}" data-contact-num-id="{{ $info->id }}">{{ $info->contact_number }}</option>
+                                <option value="" selected> Phone number </option>
 
-                                    
-                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -62,7 +60,12 @@
                     <div class="col-md-6 col-12">
                         <div class="form-group">
                             <label for="">Address</label>
-                            <input type="text" class="form-control" name="contractor_address" value="">
+                            <select class="select2 form-control form-control-lg contractor_address" name="contractor_address">
+                               
+                                    
+                                <option value="" selected> Contractor Address </option>
+
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-4 col-12">
@@ -96,7 +99,7 @@
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="dynamic_table">
                                     
                                     <tr>
                                         <td>1</td>
@@ -144,87 +147,68 @@
 
 @section('scripts')
 
+
 <script>
     $(document).ready(function(){
-     
-     $('#addRow').on('submit', function(event){
-      event.preventDefault();
-      $.ajax({
-       url:"/add/billing/contractor/",
-       method:"POST",
-       data:$(this).serialize(),
-       dataType:"json",
-       beforeSend:function(){
-        $('#add').attr('disabled', 'disabled');
-       },
-       success:function(data){
-        $('#add').attr('disabled', false);
-        if(data.first_name)
-        {
-         var html = '<tr>';
-         html += '<td>'+data.first_name+'</td>';
-         html += '<td>'+data.last_name+'</td></tr>';
-         $('#table_data').prepend(html);
-         $('#add_details')[0].reset();
-        }
-       }
-      })
-     });
-     
+        var i=1;
+        $('#addRow').click(function(){
+            i++;
+            $('#dynamic_table').clone().appendTo('#billingTable');
+            // $('#formData').append('<tr id="row'+i+'"><td><input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+        });
+        
+        $(document).on('click', '.btn_remove', function(){
+            var button_id = $(this).attr("id"); 
+            $('#row'+button_id+'').remove();
+        });
+        
+        // $('#submit').click(function(){		
+        //     $.ajax({
+        //         url:"name.php",
+        //         method:"POST",
+        //         data:$('#add_name').serialize(),
+        //         success:function(data)
+        //         {
+        //             alert(data);
+        //             $('#add_name')[0].reset();
+        //         }
+        //     });
+        // });
+        
     });
     </script>
 
-    <script>
-        $(document).ready(function() {
-            $(".contractor_name").on('change', function () { 
-                var identified_id = $(this).val();
 
-                $(".contractor_contact_number > option").css(
-                    "display":"none"
-                );
-                // $(".contractor_contact_number > option").each(function() {
+<script>
+    $(document).ready(function() {
+      $('select[name="contractor_id"]').on('change', function(){
+          var contractor_id = $(this).val();
+          if(contractor_id) {
+              $.ajax({
+                  url: "{{  url('/contractor/ajax') }}/"+contractor_id ,
+                  type:"GET",
+                  dataType:"json",
+                  success:function(data) {
+                      // get data
+                    //   console.log(data);
+                      $('select[name="contractor_contact_number"]').html('');
+                      $('select[name="contractor_address"]').html('');
 
-                //     if(this.value == identified_id) {
-                //         $("option").show();
-                //     } else {
-                //         $("option").hide();
-                //     }
-
-                // });
-
-            });
-        });
-    </script>
-
-    {{-- <script type="text/javascript">
-        $("#selectContractor").change(function(){
-            $.ajax({
-                url: "{{ route('admin.cities.get_by_country') }}?country_id=" + $(this).val(),
-                method: 'GET',
-                success: function(data) {
-                    $('#city').html(data.html);
-                }
-            });
-        });
-    </script> --}}
-{{-- <script type="text/javascript">
-    var scntDiv = $('#billingTable');
-    var i = $('#billingTable tr').size() + 1;
-
-    $('#addRow').click(function() {
-        scntDiv.append('
-        <tr><td><select name="type" id="type"><option value="Debit">Debit</option><option value="Credit">Credit</option></select></td><td><select name="accounts" id="accounts"><option value="">SELECT</option><option value="One">One</option><option value="Two">Two</option></select></td><td><input type="text" name="debit_amount" id="debit_amount"/></td><td><input type="text" name="credit_amount" id="credit_amount"/></td><td><a href="#" id="remScnt">Remove</a></td></tr>');   
-        i++;
-        return false;
+                     var d =$('select[name="contractor_contact_number"]').empty();
+                     var d =$('select[name="contractor_address"]').empty();
+                        $.each(data, function(key, value){
+                            //console.log(data.contact_number);
+                            $('select[name="contractor_contact_number"]').append('<option value="'+ data.id +'">' + data.contact_number + '</option>');
+                            $('select[name="contractor_address"]').append('<option value="'+ data.id +'">' + data.address + '</option>');
+                        });
+                  },
+              });
+          } else {
+              alert('danger');
+          }
+      });
     });
+</script>
 
-    //Remove button
-    $(document).on('click', '#remScnt', function() {
-        if (i > 2) {
-            $(this).closest('tr').remove();
-            i--;
-        }
-        return false;
-    });​ 
-</script> --}}
+
 @endsection

@@ -19,6 +19,7 @@ class CreateInstallmentsTable extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('installment_no');
             $table->decimal('installment_amount');
+            $table->softDeletes();
             $table->timestamps();
 
         

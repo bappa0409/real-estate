@@ -20,6 +20,7 @@ class CreatePurchasesTable extends Migration
             $table->integer('unit');
             $table->integer('quantity');
             $table->longText('remarks')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

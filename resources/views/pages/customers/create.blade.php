@@ -90,19 +90,26 @@
             </div>
 
             <div class="card-header">
-                <h4 class="card-title">Permenet Address</h4>
+                <h4 class="card-title">Permanent Address</h4>
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 col-12">
-                        <div class="form-group">
-                            <label for="">House No & Road</label>
-                            <input type="text" class="form-control" placeholder="House No & Road" value="{{ old('house_road_no') }}" name="house_road_no">
-                            
-                            @error('house_road_no')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">House No</label>
+                                    <input type="text" class="form-control" placeholder="House No" value="{{ old('house_no') }}" name="house_no">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">Road No</label>
+                                    <input type="text" class="form-control" placeholder="Road No" value="{{ old('road_no') }}" name="road_no">
+                                </div>
+                            </div>
                         </div>
+                       
                     </div>
                     <div class="col-md-6 col-12">
                         <div class="form-group">
@@ -163,12 +170,19 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 col-12">
-                        <div class="form-group">
-                            <label for="">House No & Road</label>
-                            <input type="text" class="form-control" placeholder="House No & Road" name="present_house_road_no"  value="{{ old('present_house_road_no') }}">
-                            @error('present_house_road_no')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">House No</label>
+                                    <input type="text" class="form-control" placeholder="House No" value="{{ old('present_house_no') }}" name="house_no">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">Road No</label>
+                                    <input type="text" class="form-control" placeholder="Road No" value="{{ old('present_road_no') }}" name="road_no">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
@@ -352,7 +366,7 @@
                     <div class="col-md-6 col-12">
                         <div class="form-group">
                             <label for="">Utility Charge</label>
-                            <input type="number" class="form-control" placeholder="Unity Charge" value="{{ old('utility_charge') }}" name="utility_charge">
+                            <input type="number" class="form-control" placeholder="Utility Charge" value="{{ old('utility_charge') }}" name="utility_charge">
                             @error('utility_charge')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

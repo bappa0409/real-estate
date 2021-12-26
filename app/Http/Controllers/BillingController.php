@@ -79,9 +79,13 @@ class BillingController extends Controller
         return view('pages.billings.create_designer_billing', compact('project', 'designers'));
     }
     
-    public function index()
+    public function getContractor($contractor_id)
     {
-        //
+        $contractor = Contractor::findOrFail($contractor_id);
+        
+        return json_encode($contractor);
+        // $designers = Designer::all();
+        // return view('pages.billings.create_designer_billing', compact('project', 'designers'));
     }
 
     /**

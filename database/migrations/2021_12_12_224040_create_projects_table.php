@@ -26,6 +26,7 @@ class CreateProjectsTable extends Migration
             $table->decimal('price');
             $table->string('booked_flat')->nullable();
             $table->longText('project_image')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         
         });
